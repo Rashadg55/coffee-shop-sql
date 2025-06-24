@@ -1,0 +1,20 @@
+CREATE TABLE Customers (
+  CustomerID INT PRIMARY KEY AUTO_INCREMENT,
+  FullName VARCHAR(100),
+  Email VARCHAR(100)
+);
+
+CREATE TABLE MenuItems (
+  ItemID INT PRIMARY KEY AUTO_INCREMENT,
+  ItemName VARCHAR(50),
+  Price DECIMAL(4,2)
+);
+
+CREATE TABLE Orders (
+  OrderID INT PRIMARY KEY AUTO_INCREMENT,
+  CustomerID INT,
+  ItemID INT,
+  OrderDate DATE,
+  FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID),
+  FOREIGN KEY (ItemID) REFERENCES MenuItems(ItemID)
+);
